@@ -4,7 +4,7 @@
 
 To activate a funder on NEARamp, we will need
 
-1. Developer ID - Account ID of developer's NEAR wallet from which they will deposit funds to the contract (i.e superdeveloper.testnet)
+1. Developer ID - Account ID of developer's NEAR wallet (e.g. `superdeveloper.testnet`).
 2. RSA Public Key - RSA public key used for verifying JWTs signed by developer - [How to](/generating-rsa-keypair) 
 
 ### SDK Integration
