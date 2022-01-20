@@ -26,10 +26,10 @@ To activate a funder on NEARamp, we will need
 
   ```js
     /* element into which the page will be loaded  */ 
-    // <div id="wallet-box"> </div>
+    // <div id="widget-box"> </div>
     
     /* sdk call */
-    window.NR('show', { developerID: '<developer>.testnet', grantToken: token, targetElement: 'wallet-box' });
+    window.NR('show', { developerID: '<developer>.testnet', grantToken: token, targetElement: 'widget-box' });
   ```
 
 ### How does NEARamp work?
