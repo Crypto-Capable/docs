@@ -18,7 +18,6 @@ To activate a funder on NEARamp, we will need
         js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
         js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
       }(window, document, 'script', 'NR', 'https://sdk.cryptocapable.community/nearamp.js'));
-      NR('init', {});
     </script>
   ```
   
@@ -29,7 +28,14 @@ To activate a funder on NEARamp, we will need
     // <div id="widget-box"> </div>
     
     /* sdk call */
-    window.NR('show', { developerID: '<developer>.testnet', grantToken: token, targetElement: 'widget-box' });
+    window.NR('init', {
+      developerID: '<developer>.testnet', // Required: Onboarded developer id
+      grantToken: token,                  // Required: Token signed by developer private key
+      targetElement: 'widget-box'         // Required: Parent DOM element for sdk instance
+      loginConfig: {                      // Optional: Pass login config authenticate the newly created NEAR account into the app
+        contractId: '<>'                                                      
+      }
+     });
   ```
 
 ### How does NEARamp work?
