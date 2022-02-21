@@ -61,3 +61,7 @@ function generateJWT() {
   return token;
 }
 ```
+
+### Support
+
+Please email us on nearamp@cryptocapable.community, and we'd be happy to help with any integration queries
