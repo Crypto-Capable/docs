@@ -7,6 +7,12 @@ To activate a funder on NEARamp, we will need
 1. Developer ID - Account ID of developer's NEAR wallet (e.g. `superdeveloper.testnet`).
 2. RSA Public Key - RSA public key used for verifying JWTs signed by developer - [How to](/keypair.md) 
 
+### SDK Endpoints
+
+   **Mainnet**: `https://sdk.nearamp.dev/nearamp.js`
+
+   **Testnet**: `https://sdk.testnet.nearamp.dev/nearamp.js`
+
 ### SDK Integration
 
 1. Import the SDK
@@ -17,7 +23,7 @@ To activate a funder on NEARamp, we will need
         w['NEARamp']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
         js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
         js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-      }(window, document, 'script', 'NR', 'https://sdk.cryptocapable.community/nearamp.js'));
+      }(window, document, 'script', 'NR', 'https://sdk.testnet.nearamp.dev/nearamp.js'));
     </script>
   ```
   
@@ -29,9 +35,9 @@ To activate a funder on NEARamp, we will need
     
     /* sdk call */
     window.NR('init', {
-      developerID: '<developer>.testnet', // Required: Onboarded developer id
+      developerID: '<developer.testnet|developer.near>', // Required: Onboarded developer id
       grantToken: token,                  // Required: Token signed by developer private key
-      targetElement: 'widget-box'         // Required: Parent DOM element for sdk instance
+      targetElement: 'widget-box'         // Required: ID of Parent DOM element for sdk instance
       loginConfig: {                      // Optional: Pass login config authenticate the newly created NEAR account into the app
         contractId: '<>'                                                      
       }
@@ -62,6 +68,32 @@ function generateJWT() {
 }
 ```
 
-### Support
+## Managing NEARamp Contract
+
+Developer funds are deposited and managed by the NEARamp smart contract. Funds can be added/withdrawn by directly calling contract methods via NEAR CLI.
+
+### Contract Name
+```sh
+export CONTRACT_NAME="v1.neaamp.near"
+# Or Testnet:
+export CONTRACT_NAME="v1-alpha.nearamp.testnet" 
+```
+
+### Check balance
+```sh
+near view $CONTRACT_NAME get_funder  --args '{"account_id":"<developerid>"}' --accountId <developerid>
+```
+
+### Deposit funds
+```sh
+near call $CONTRACT_NAME self_deposit --accountId <developerid> --deposit "1" 
+```
+
+### Withdraw funds into account
+```sh
+near call $CONTRACT_NAME self_withdraw  --args '{"amount":"1"}' --accountId $CONTRACT_NAME # amount to withdraw in near
+```
+
+# Support
 
 Please email us on nearamp@cryptocapable.community, and we'd be happy to help with any integration queries
