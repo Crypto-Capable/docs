@@ -39,7 +39,7 @@ To activate a funder on NEARamp, we will need
     window.NR('init', {
       developerID: '<developer.testnet|developer.near>', // Required: Onboarded developer id
       grantToken: token,                  // Required: Token signed by developer private key
-      targetElement: 'widget-box'         // Required: ID of Parent DOM element for sdk instance
+      targetElement: 'widget-box' ,       // Required: ID of Parent DOM element for sdk instance
       loginConfig: {                      // Optional: Pass login config authenticate the newly created NEAR account into the app
         contractId: '<>'                                                      
       },
