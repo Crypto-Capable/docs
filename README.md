@@ -42,7 +42,8 @@ To activate a funder on NEARamp, we will need
       targetElement: 'widget-box'         // Required: ID of Parent DOM element for sdk instance
       loginConfig: {                      // Optional: Pass login config authenticate the newly created NEAR account into the app
         contractId: '<>'                                                      
-      }
+      },
+      darkMode: true|false                // Optional: Use dark mode sdk
      });
   ```
 
