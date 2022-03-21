@@ -94,7 +94,8 @@ near call $CONTRACT_NAME self_deposit --accountId <developerid> --deposit "1"
 
 ### Withdraw funds into account
 ```sh
-near call $CONTRACT_NAME self_withdraw  --args '{"amount":"1"}' --accountId $CONTRACT_NAME # amount to withdraw in near
+near call $CONTRACT_NAME self_withdraw  --args '{"amount":"1000000000000000000000000"}' --accountId $CONTRACT_NAME 
+# amount to withdraw in near in yocto. Given example is 1N
 ```
 
 # Support
