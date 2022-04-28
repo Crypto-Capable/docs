@@ -77,7 +77,7 @@ Developer funds are deposited and managed by the NEARamp smart contract. Funds c
 
 ### Contract Name
 ```sh
-export CONTRACT_NAME="v1.neaamp.near"
+export CONTRACT_NAME="v1.nearamp.near"
 # Or Testnet:
 export CONTRACT_NAME="v1-alpha.nearamp.testnet" 
 ```
@@ -94,9 +94,16 @@ near call $CONTRACT_NAME self_deposit --accountId <developerid> --deposit "1"
 
 ### Withdraw funds into account
 ```sh
-near call $CONTRACT_NAME self_withdraw  --args '{"amount":"1000000000000000000000000"}' --accountId $CONTRACT_NAME 
 # amount to withdraw in near in yocto. Given example is 1N
+near call $CONTRACT_NAME self_withdraw  --args '{"amount":"1000000000000000000000000"}' --accountId <developerid>
 ```
+
+### Change default transfer amount
+```sh
+# transfer_amount in yocto near. Given example is 0.2N
+near call $CONTRACT_NAME set_transfer_amount --args '{"transfer_amount":"200000000000000000000000"}' --accountId <developerid>
+```
+
 
 # Support
 
